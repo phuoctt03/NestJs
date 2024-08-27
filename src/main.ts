@@ -4,9 +4,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({
-    origin: 'https://react-js-one-rosy.vercel.app/',
-  });
+  app.enableCors();
 
   const config = new DocumentBuilder()
     .setTitle('Playlist API')
