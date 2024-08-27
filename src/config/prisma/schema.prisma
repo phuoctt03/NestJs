@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model avtUser {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  UserID    String
+  avatarUrl String
+  state     String
+}
+
+model playlist {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  UID     String
+  author  String
+  avtUser String
+  date    String
+  name    String
+  src     String
+  watched String
+}
+
+model users {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  Email        String
+  PasswordHash String
+  Role         String
+  Username     String
+}
