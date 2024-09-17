@@ -20,8 +20,8 @@ export class AvtUserService {
     const hash = createHash('sha256').update(file.buffer).digest('hex');
     const fullFileName = `${id}.${hash}.${type}`;
     const filePublic = `${admin?.id}.${hash}.${type}`
-    let filePath = `http://localhost:3002/avt/${fullFileName}`;
-    let filePublicPath = `http://localhost:3002/avt/${filePublic}`;
+    let filePath = `https://nestjs-xkl8.onrender.com/avt/${fullFileName}`;
+    let filePublicPath = `https://nestjs-xkl8.onrender.com/avt/${filePublic}`;
     let avt = await this.prisma.avtUser.findFirst({
       where:{ 
         OR:[
